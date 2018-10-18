@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="main-section">
+    {% for tag in tags %}
+        <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+              <div class="card-body">
+                    <h5 class="card-title">{{ tag.name }}</h5>
+                    <p class="card-text">{{ card.description|truncatechars:50 }}...</p>
+                    <a href="{% url 'card-details' slug=card.slug %}" class="btn btn-primary">Go somewhere</a>
+              </div>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock content %}

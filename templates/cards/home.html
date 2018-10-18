@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <div class="main-section">
+            <div class="row">
+                {% for card in cards %}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card" style="">
+                        <div class="card-img-top card-image " style="background-image:url('{{ card.image.url }}')"><a
+                                href="{% url 'card-details' slug=card.slug %}"></a></div>
+                          <div class="card-body">
+                                <h5 class="card-title"><a href="{% url 'card-details' slug=card.slug %}">{{ card.title }}</a></h5>
+                                {% for tag in card.tags.all %}
+                                    <span class="ui-link disabled" href="#">
+                                        {{tag.name}}</span><span> / </span>
+                                    {% endfor %}
+                          </div>
+                    </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
